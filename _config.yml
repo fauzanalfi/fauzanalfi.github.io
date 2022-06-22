@@ -1,109 +1,65 @@
-#
-# This file contains configuration flags to customize your site
-#
+# Site
+name: 'Mundana'
+description: 'Mundana is a free Jekyll theme for awesome people like you, Medium like.'
+logo: 'assets/images/logo.png'
+favicon: 'assets/images/favicon.ico'
+baseurl: '/mundana-theme-jekyll'
+disqus: 'demowebsite'
+email: 'wowthemesnet@gmail.com'
+mailchimp-list: 'https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b'
 
-# Site locale
-lang: "en"
+include: ["_pages"]
+permalink: /:title/
 
-# Name of your site (displayed in the header)
-title: Fauzan on GitHub
-
-# Short bio or description (displayed in the header)
-description: Just another weblog. But in GitHub.
-
-# URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: /assets/image/avatar-me-1024x1024.jpg
-
-#
-# Flags below are optional
-#
-
-# Your website URL (e.g. https://forever-jekyll.github.io or https://forever-jekyll.com)
-# Used for Sitemap.xml and your RSS feed
-url: https://fauzanalfi.github.io
-
-# If you're hosting your site at a Project repository on GitHub pages
-# (http://yourusername.github.io/repository-name)
-# and NOT your User repository (http://yourusername.github.io)
-# then add in the baseurl here, like this: "/repository-name"
-baseurl: ""
-
-# Navigation menu
-navigation_links:
-  - title: Blog
-    url: /
-
-  - title: About
-    url: /about
-
-  - title: Search
-    url: /search
-
-# Footer icons
-footer_links:
-  - title: Feed
-    url: feed.xml
-    icon: fa fa-rss-square
-
-  - title: Twitter
-    url: https://twitter.com/fauzanalfi
-    icon: fa fa-twitter-square
-
-  - title: GitHub
-    url: https://github.com/fauzanalfi
-    icon: fa fa-github-square
-
-# Enter your copyright text if you wish to override the default one.
-copyright: "This site is forked by myself."
-
-# Time zone
-timezone: Asia/Tokyo
-
-# Excerpt separator
-excerpt_separator: <!--more-->
-
-#
-# !! You don't need to change any of the configuration flags below !!
-#
-
-permalink: pretty
-
-# Jekyll 3 now only supports Kramdown for Markdown
-kramdown:
-  # Use GitHub flavored markdown, including triple backtick fenced code blocks
-  input: GFM
-  # Jekyll 3 and GitHub Pages now support rouge for syntax highlighting
-  syntax_highlighter: rouge
-  syntax_highlighter_opts:
-    # Use existing pygments syntax highlighting css
-    css_class: 'highlight'
-
-# Pagination
-paginate: 5
-paginate_path: "/page/:num/"
-
-# Set the Sass partials directory, as we're using @imports
-sass:
-  sass_dir: _sass
-  style: :expanded # You might prefer to minify using :compressed
-
-# Use the following plug-ins
-plugins:
-  - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
-  - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
-  - jekyll-gist
+# Plugins
+plugins: 
+  - jekyll-feed
+  - jekyll-sitemap
   - jekyll-paginate
   - jekyll-seo-tag
-  - jemoji
-  - webrick
-  - jekyll-github-metadata
+  
+authors:
+    sal:
+      name:           Sal
+      site:           https://www.wowthemes.net
+      avatar:         /assets/images/avatar1.jpg
+      bio:            "Hi, I am Sal, the author of Mundana, the theme you're currently previewing. I hope you like it!"
+      email:          wowthemesnet@gmail.com
+      twitter:        https://twitter.com/wowthemesnet
 
-# Exclude these files from your production _site
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - LICENSE
-  - README.md
-  - CNAME
+    jane:
+      name:           Jane
+      site:           https://www.wowthemes.net
+      avatar:         /assets/images/avatar2.jpg
+      bio:            "Blogger, fashionista, love to explore new ideas and write on my morning coffee!"
+      email:          fakemail@gmail.com
+      twitter:        https://twitter.com/wowthemesnet
+ 
+# Defaults
+defaults:
 
-remote_theme: wowthemesnet/mundana-theme-jekyll
+  # all posts
+  - scope:
+      path: "_posts"
+    values:
+      layout: post
+      author: sal
+      avatar: /assets/images/avatar1.jpg
+      
+  # all pages
+  - scope:
+      path: "_pages"
+    values:
+      layout: page
+      
+# Syntax
+markdown: kramdown
+highlighter: rouge
+
+# Paginate
+paginate: 10
+
+
+
+# Exclude metadata and development time dependencies (like Grunt plugins)
+exclude: [README.markdown, package.json, grunt.js, Gruntfile.js, Gruntfile.coffee, node_modules]
