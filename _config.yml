@@ -57,7 +57,7 @@ footer_links:
 copyright: "This site is forked by myself."
 
 # Time zone
-timezone: null
+timezone: Asia/Tokyo
 
 # Excerpt separator
 excerpt_separator: <!--more-->
