@@ -1,14 +1,20 @@
----
-layout: default
----
-
-<div class="container">
-<h3 class="font-weight-bold spanborder"><span>{{page.title}}</span></h3>
-<div class="page-content">
-{{ content }}
-<!-- Comments -->
-{% if page.comments == true %}
-{% include comments.html %}
-{% endif %}
-</div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{%- include head.html -%}
+</head>
+<body>
+	<header class="texture-{{ site.texture.style }}">
+		<div class="container">
+			{%- include nav.html -%}
+		</div>
+		{%- include page_header.html -%}	
+	</header>
+	<main>
+		<div class="container">
+			{{ content }}
+		</div>
+	</main>
+	{%- include footer.html -%}
+</body>
+</html>
