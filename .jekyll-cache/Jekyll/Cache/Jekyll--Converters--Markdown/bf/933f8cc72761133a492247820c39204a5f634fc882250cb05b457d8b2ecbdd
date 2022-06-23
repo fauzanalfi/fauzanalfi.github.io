@@ -1,13 +1,13 @@
-I"£	<div class="container">
+I"O	<div class="container">
 <h4 class="font-weight-bold spanborder"><span>Authors</span></h4>
     <div class="row gap-y listrecent listrecent listauthor">
     
         <div class="col-lg-6 mb-4">
             <div class="p-4 border rounded">
             <div class="row">
-            <div class="col-md-3 mb-4 mb-md-0"><img alt="Sal" src="/mundana-theme-jekyll//assets/images/avatar1.jpg" class="rounded-circle" height="80" width="80" /></div>
+            <div class="col-md-3 mb-4 mb-md-0"><img alt="Sal" src="//assets/images/avatar1.jpg" class="rounded-circle" height="80" width="80" /></div>
             <div class="col-md-9">
-            <a href="/mundana-theme-jekyll/author-sal">
+            <a href="/author-sal">
             <h4 class="text-dark mb-0"> Sal </h4>
             <small class="d-inline-block mt-1 mb-3 font-weight-normal">(View Posts)</small>
             <div class="excerpt">Hi, I am Sal, the author of Mundana, the theme you're currently previewing. I hope you like it!</div>
@@ -26,9 +26,9 @@
         <div class="col-lg-6 mb-4">
             <div class="p-4 border rounded">
             <div class="row">
-            <div class="col-md-3 mb-4 mb-md-0"><img alt="Jane" src="/mundana-theme-jekyll//assets/images/avatar2.jpg" class="rounded-circle" height="80" width="80" /></div>
+            <div class="col-md-3 mb-4 mb-md-0"><img alt="Jane" src="//assets/images/avatar2.jpg" class="rounded-circle" height="80" width="80" /></div>
             <div class="col-md-9">
-            <a href="/mundana-theme-jekyll/author-jane">
+            <a href="/author-jane">
             <h4 class="text-dark mb-0"> Jane </h4>
             <small class="d-inline-block mt-1 mb-3 font-weight-normal">(View Posts)</small>
             <div class="excerpt">Blogger, fashionista, love to explore new ideas and write on my morning coffee!</div>
