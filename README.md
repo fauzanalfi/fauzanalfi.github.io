@@ -124,6 +124,79 @@ texture:
 - Page
 - Post
 
+## Managing Posts Easily (This Repo)
+
+This site now includes a visual editor using Decap CMS.
+
+### 1. Open the editor
+
+Visit `/admin` on your deployed site.
+
+Example: `https://fauzanalfi.github.io/admin/`
+
+### 2. Write with drafts and review flow
+
+- Create a new post from the CMS UI
+- Save as draft while writing
+- Move to review when ready
+- Publish when done
+
+Draft and review states are controlled by `publish_mode: editorial_workflow` in `admin/config.yml`.
+
+### 3. Schedule posts
+
+Set a future publish date in the post editor. Scheduled content becomes visible after that date when the site rebuilds.
+
+This repo includes `.github/workflows/scheduled-publish.yml`, which triggers an hourly commit to force a GitHub Pages rebuild so future-dated posts can go live automatically.
+
+### 4. Media uploads
+
+Upload images directly in CMS. Files are stored in `assets/uploads/`.
+
+### 5. One-time authentication setup for GitHub Pages
+
+Decap with the `github` backend needs an OAuth proxy service.
+
+#### Quick setup (Render)
+
+1. Create a new GitHub OAuth App:
+- Callback URL: `https://YOUR-RENDER-SERVICE.onrender.com/callback`
+- Save the generated `Client ID` and `Client Secret`
+
+2. Deploy an OAuth proxy service on Render:
+- Create a new Web Service from this template repo:
+  `https://github.com/decaporg/decap-cms-oauth-provider`
+- Runtime: Node
+- Build command: `npm install`
+- Start command: `npm start`
+
+3. Add environment variables in Render:
+- `ORIGIN=https://fauzanalfi.github.io`
+- `OAUTH_CLIENT_ID=<your GitHub client id>`
+- `OAUTH_CLIENT_SECRET=<your GitHub client secret>`
+- `GITHUB_HOSTNAME=github.com`
+- `NODE_ENV=production`
+
+4. Update `admin/config.yml`:
+- Set `backend.base_url` to your Render URL
+- Keep `backend.auth_endpoint: auth`
+
+Example:
+
+```yaml
+backend:
+  name: github
+  repo: fauzanalfi/fauzanalfi.github.io
+  branch: main
+  base_url: https://YOUR-RENDER-SERVICE.onrender.com
+  auth_endpoint: auth
+```
+
+5. Commit and push, then open:
+- `https://fauzanalfi.github.io/admin/`
+
+You should now be able to log in with GitHub and create/edit posts directly from the CMS.
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/samarsault/texture. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
