@@ -6,8 +6,8 @@ backend:
   branch: main
   # GitHub Pages requires an OAuth proxy for Decap login.
   # Example: https://decap-oauth-fauzan.onrender.com
-  # base_url: https://your-oauth-proxy.example.com
-  # auth_endpoint: auth
+  base_url: https://netlify-cms-github-oauth-provider-9c65.onrender.com
+  auth_endpoint: auth
 
 publish_mode: editorial_workflow
 media_folder: assets/uploads

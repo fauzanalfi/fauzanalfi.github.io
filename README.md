@@ -159,29 +159,66 @@ Decap with the `github` backend needs an OAuth proxy service.
 
 #### Quick setup (Render)
 
-1. Create a new GitHub OAuth App:
-- Callback URL: `https://YOUR-RENDER-SERVICE.onrender.com/callback`
-- Save the generated `Client ID` and `Client Secret`
+This is the easiest path for GitHub Pages users.
+No coding is required. Just copy values and click through forms.
 
-2. Deploy an OAuth proxy service on Render:
-- Create a new Web Service from this template repo:
-  `https://github.com/decaporg/decap-cms-oauth-provider`
-- Runtime: Node
-- Build command: `npm install`
-- Start command: `npm start`
+Estimated time: 10-15 minutes.
 
-3. Add environment variables in Render:
-- `ORIGIN=https://fauzanalfi.github.io`
-- `OAUTH_CLIENT_ID=<your GitHub client id>`
-- `OAUTH_CLIENT_SECRET=<your GitHub client secret>`
-- `GITHUB_HOSTNAME=github.com`
-- `NODE_ENV=production`
+Before starting, prepare these values:
+- Site URL: `https://fauzanalfi.github.io`
+- Repo URL: `https://github.com/fauzanalfi/fauzanalfi.github.io`
+- A Render account and GitHub account (both logged in)
 
-4. Update `admin/config.yml`:
-- Set `backend.base_url` to your Render URL
-- Keep `backend.auth_endpoint: auth`
+1. Create the OAuth service on Render (Docker).
+- Open Render dashboard and click `New` > `Web Service`.
+- Connect this repo URL:
+  `https://github.com/vencax/netlify-cms-github-oauth-provider`
+- On setup page, use these values:
+  - Name: `decap-oauth-fauzan` (or any name you like)
+  - Region: nearest to your users
+  - Branch: `main` (or default branch shown by Render)
+  - Runtime: `Docker`
+  - Instance Type: `Free`
+- Important:
+  - Leave Build Command empty
+  - Leave Start Command empty
+  - Docker build/run will follow the repository `Dockerfile`
+- Click `Create Web Service` and wait until status is `Live`.
 
-Example:
+2. Copy your Render service URL.
+- Example: `https://decap-oauth-fauzan.onrender.com`
+- Keep this URL for next steps.
+
+3. Create a GitHub OAuth App.
+- Open `https://github.com/settings/developers`.
+- Click `New OAuth App`.
+- Fill:
+  - Application name: `Fauzan Blog CMS`
+  - Homepage URL: `https://fauzanalfi.github.io`
+  - Authorization callback URL: `https://YOUR-RENDER-SERVICE.onrender.com/callback`
+- Click `Register application`.
+- Copy `Client ID`.
+- Click `Generate a new client secret`, then copy `Client Secret`.
+
+4. Add environment variables in Render.
+- Open your Render OAuth service > `Environment`.
+- Add these exact keys and values:
+
+```text
+ORIGINS=fauzanalfi.github.io
+OAUTH_CLIENT_ID=<your GitHub client id>
+OAUTH_CLIENT_SECRET=<your GitHub client secret>
+GIT_HOSTNAME=https://github.com
+NODE_ENV=production
+```
+
+5. Redeploy the Render service.
+- Click `Manual Deploy` > `Deploy latest commit`.
+- Wait until status is `Live` again.
+- Optional (if deploy fails after env changes): use `Clear build cache & deploy` once.
+
+6. Update CMS config in this repo (`admin/config.yml`).
+- Replace backend config with this block:
 
 ```yaml
 backend:
@@ -192,10 +229,133 @@ backend:
   auth_endpoint: auth
 ```
 
-5. Commit and push, then open:
-- `https://fauzanalfi.github.io/admin/`
+7. Commit and push changes (copy-paste commands).
 
-You should now be able to log in with GitHub and create/edit posts directly from the CMS.
+If this repo is already on your computer:
+
+```bash
+cd fauzanalfi.github.io
+git pull origin main
+git add admin/config.yml
+git commit -m "Configure Decap CMS OAuth via Render"
+git push origin main
+```
+
+If this repo is not on your computer yet:
+
+```bash
+git clone https://github.com/fauzanalfi/fauzanalfi.github.io.git
+cd fauzanalfi.github.io
+git add admin/config.yml
+git commit -m "Configure Decap CMS OAuth via Render"
+git push origin main
+```
+
+8. Final check.
+- Wait for GitHub Pages deploy to finish.
+- Open: `https://fauzanalfi.github.io/admin/`
+- Click `Login with GitHub`, authorize app, then create one test draft post.
+
+If login fails:
+- Check Render logs first (`Logs` tab in your Render service).
+- Make sure these two values match exactly:
+  - GitHub OAuth callback URL
+  - `backend.base_url` in `admin/config.yml`
+
+#### Alternative quick setup (Railway)
+
+If Render is unstable for your account/region, use Railway with the same OAuth provider.
+
+Estimated time: 10-15 minutes.
+
+Before starting, prepare these values:
+- Site URL: `https://fauzanalfi.github.io`
+- Repo URL: `https://github.com/fauzanalfi/fauzanalfi.github.io`
+- A Railway account and GitHub account (both logged in)
+
+1. Create OAuth service on Railway.
+- Open Railway dashboard and click `New Project`.
+- Choose `Deploy from GitHub repo`.
+- Select this repo:
+  `https://github.com/vencax/netlify-cms-github-oauth-provider`
+- Wait for first deploy to finish.
+
+2. Generate a public domain.
+- Open your Railway service > `Settings` > `Networking`.
+- Click `Generate Domain`.
+- Copy the URL. Example: `https://decap-oauth-fauzan.up.railway.app`
+
+3. Create a GitHub OAuth App.
+- Open `https://github.com/settings/developers`.
+- Click `New OAuth App`.
+- Fill:
+  - Application name: `Fauzan Blog CMS (Railway)`
+  - Homepage URL: `https://fauzanalfi.github.io`
+  - Authorization callback URL: `https://YOUR-RAILWAY-DOMAIN/callback`
+- Click `Register application`.
+- Copy `Client ID`.
+- Click `Generate a new client secret`, then copy `Client Secret`.
+
+4. Add environment variables in Railway.
+- Open your Railway service > `Variables`.
+- Add these exact keys and values:
+
+```text
+ORIGINS=fauzanalfi.github.io
+OAUTH_CLIENT_ID=<your GitHub client id>
+OAUTH_CLIENT_SECRET=<your GitHub client secret>
+GIT_HOSTNAME=https://github.com
+NODE_ENV=production
+```
+
+5. Redeploy Railway service.
+- Trigger a redeploy from `Deployments`.
+- Wait until status is successful.
+
+6. Update CMS config in this repo (`admin/config.yml`).
+- Replace backend config with this block:
+
+```yaml
+backend:
+  name: github
+  repo: fauzanalfi/fauzanalfi.github.io
+  branch: main
+  base_url: https://YOUR-RAILWAY-DOMAIN
+  auth_endpoint: auth
+```
+
+7. Commit and push changes (copy-paste commands).
+
+If this repo is already on your computer:
+
+```bash
+cd fauzanalfi.github.io
+git pull origin main
+git add admin/config.yml
+git commit -m "Configure Decap CMS OAuth via Railway"
+git push origin main
+```
+
+If this repo is not on your computer yet:
+
+```bash
+git clone https://github.com/fauzanalfi/fauzanalfi.github.io.git
+cd fauzanalfi.github.io
+git add admin/config.yml
+git commit -m "Configure Decap CMS OAuth via Railway"
+git push origin main
+```
+
+8. Final check.
+- Wait for GitHub Pages deploy to finish.
+- Open: `https://fauzanalfi.github.io/admin/`
+- Click `Login with GitHub`, authorize app, then create one test draft post.
+
+If login fails:
+- Check Railway deploy logs first.
+- Make sure these two values match exactly:
+  - GitHub OAuth callback URL
+  - `backend.base_url` in `admin/config.yml`
 
 ## Contributing
 
