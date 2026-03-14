@@ -22,13 +22,10 @@ Currently, I am building “*F18N Lab*” – a multidisciplinary-approached l
 
 * Fabian Hosea, S.Ars (October 2024)
 * Sheila Azzahra Maharani, S.Ars. (October 2024)
-* * Handria Ahmad Naufal, S.Ars. (2025)
-
-  * Muhammad Fajri Bukhaira, S.Ars. (2025)
-
-  * * Paul Dwi Ranigiyan, M.Ars. (2025)
-
-    * Nur Zastri Noviana, M.R.K. (2025)
+* Handria Ahmad Naufal, S.Ars. (2025)
+* Muhammad Fajri Bukhaira, S.Ars. (2025)
+* Paul Dwi Ranigiyan, M.Ars. (2025)
+* Nur Zastri Noviana, M.R.K. (2025)
 
 
 # Research Keywords
