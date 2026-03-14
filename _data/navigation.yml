@@ -1,7 +1,9 @@
 main:
   - title: Home
     url: /
-  - title: About
-    url: /about/
+  - title: Now
+    url: /now/
+  - title: Research
+    url: /research/
   - title: Blog
     url: /blog/
