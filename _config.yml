@@ -1,53 +1,48 @@
+locale: "en-US"
 title: Fauzan @ GitHub
-author: Fauzan
-email: hi@fauzan.id
-description: > # this means to ignore newlines until "show_exerpts:"
-  Just another weblog. But on GitHub.
-show_excerpts: true # set to true to show excerpts on the homepage
-baseurl: ''
+name: "Fauzan"
+description: "BIM Engineer. XR Designer."
+url: "https://fauzanalfi.github.io"
+baseurl: ""
+repository: "fauzanalfi/fauzanalfi.github.io"
 timezone: Asia/Jakarta
 future: false
 
-# Minima date format
-# refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
-sass:
-  sass_dir: _sass
+remote_theme: academicpages/academicpages.github.io
+site_theme: "default"
 
+author:
+  avatar: ""
+  name: "Fauzan"
+  bio: "BIM Engineer. XR Designer."
+  location: "Indonesia"
+  email: "hi@fauzan.id"
+  github: "fauzanalfi"
+  linkedin: "fauzanalfi"
+  instagram: "fauzanalfi"
+  twitter: "fauzanalfi"
+
+comments:
+  provider: "disqus"
+  disqus:
+    shortname: "fauzanalfi"
+
+breadcrumbs: false
+read_more: "disabled"
 permalink: /posts/:title/
-texture:
-  title: Fauzan @ GitHub
-  tagline: BIM Engineer. XR Designer.
-  date_format: "%b %-d, %Y"
-  style: blue
-  showNav: true
-  showPicker: false
-  disqus_shortname: fauzanalfi
-  navigation:
-    - title: About
-      url: "/about"
-    - title: Project
-      url: "/project"
 
-  # generate social links in footer
-  social_links:
-    twitter: fauzanalfi
-    github:  fauzanalfi
-    linkedIn: in/fauzanalfi
-    instagram: fauzanalfi
-    rss: rss
- 
-
-# If you want to link only specific pages in your header, uncomment
-# this and add the path to the pages in order as they should show up
-#header_pages:
-# - about.md
-
-# Build settings
-# theme: texture
+include:
+  - _pages
 
 plugins:
-  - jekyll-seo-tag
   - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-redirect-from
+  - jemoji
+  - jekyll-include-cache
+  - jekyll-remote-theme
 
 defaults:
   - scope:
@@ -55,3 +50,14 @@ defaults:
       type: posts
     values:
       layout: post
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
