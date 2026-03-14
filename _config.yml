@@ -31,9 +31,6 @@ breadcrumbs: false
 read_more: "disabled"
 permalink: /posts/:title/
 
-include:
-  - _pages
-
 plugins:
   - jekyll-feed
   - jekyll-sitemap
@@ -44,7 +41,6 @@ plugins:
   - jekyll-include-cache
   - jekyll-remote-theme
 
-<<<<<<< HEAD
 defaults:
   - scope:
       path: ""
@@ -62,7 +58,7 @@ defaults:
     values:
       layout: single
       author_profile: true
-=======
+
 # Exclude these files from your production _site
 exclude:
   - Gemfile
@@ -73,5 +69,5 @@ exclude:
 
 # Robots are welcome
 include:
+  - _pages
   - robots.txt
->>>>>>> 7ea0928197015c50d4a89ab5804648f9297294d3
