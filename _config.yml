@@ -44,6 +44,7 @@ plugins:
   - jekyll-include-cache
   - jekyll-remote-theme
 
+<<<<<<< HEAD
 defaults:
   - scope:
       path: ""
@@ -61,3 +62,16 @@ defaults:
     values:
       layout: single
       author_profile: true
+=======
+# Exclude these files from your production _site
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - CNAME
+
+# Robots are welcome
+include:
+  - robots.txt
+>>>>>>> 7ea0928197015c50d4a89ab5804648f9297294d3
