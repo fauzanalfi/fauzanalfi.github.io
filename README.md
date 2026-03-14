@@ -42,6 +42,18 @@ Open CMS at:
 Current collections:
 - `posts` (folder: `_posts`)
 - `pages` (folder: `_pages`)
+- `site_settings` (file: `_data/navigation.yml`, for menu order)
+
+### Navigation and Home setup
+
+- Main menu order can be managed visually in Decap CMS:
+   - `Site Settings` → `Navigation`
+   - Reorder items with drag-and-drop
+- Blog post listing is available at:
+   - `/blog/`
+- Default Home page is managed as a normal page file:
+   - `_pages/home.md` with permalink `/`
+   - Editable from Decap CMS in `Pages`
 
 ## OAuth setup for GitHub backend
 
