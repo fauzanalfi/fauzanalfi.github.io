@@ -36,3 +36,21 @@ collections:
         required: false
         hint: Add one category per item.
       - { label: Body, name: body, widget: markdown }
+
+  - name: pages
+    label: Pages
+    label_singular: Page
+    folder: _pages
+    create: true
+    extension: md
+    format: yaml-frontmatter
+    slug: "{{slug}}"
+    preview_path: "{{slug}}"
+    editor:
+      preview: true
+    fields:
+      - { label: Layout, name: layout, widget: hidden, default: single }
+      - { label: Title, name: title, widget: string }
+      - { label: Permalink, name: permalink, widget: string, hint: "Contoh: /about/" }
+      - { label: Author Profile, name: author_profile, widget: boolean, required: false, default: true }
+      - { label: Body, name: body, widget: markdown }
