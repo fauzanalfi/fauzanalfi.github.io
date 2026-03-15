@@ -2,7 +2,7 @@
 layout: single
 title: "Home"
 permalink: /
-author_profile: false
+author_profile: true
 ---
 
 Welcome to my website.

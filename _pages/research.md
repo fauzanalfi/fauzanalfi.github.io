@@ -2,7 +2,7 @@
 layout: single
 title: Research
 permalink: /research/
-author_profile: false
+author_profile: true
 ---
 # Welcome to F18N Lab
 

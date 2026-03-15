@@ -2,7 +2,7 @@
 layout: single
 title: Now
 permalink: /now/
-author_profile: false
+author_profile: true
 ---
 # ⚔ What am I up to?
 
