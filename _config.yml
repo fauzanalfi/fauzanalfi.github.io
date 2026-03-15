@@ -1,36 +1,31 @@
-locale: "en-US"
-title: Fauzan @ GitHub
-name: "Fauzan"
-description: "BIM Engineer. XR Designer."
-url: "https://fauzanalfi.github.io"
+locale: en-US
+title: Fauzan Alfi
+name: Fauzan Alfi
+description: BIM Engineer. XR Designer.
+url: https://fauzanalfi.github.io
 baseurl: ""
-repository: "fauzanalfi/fauzanalfi.github.io"
+repository: fauzanalfi/fauzanalfi.github.io
 timezone: Asia/Jakarta
 future: false
-
 remote_theme: academicpages/academicpages.github.io
-site_theme: "default"
-
+site_theme: default
 author:
+  github: fauzanalfi
+  bio: BIM Engineer. XR Designer.
+  name: Fauzan
+  instagram: fauzanalfi
+  twitter: fauzanalfi
+  location: Indonesia
   avatar: ""
-  name: "Fauzan"
-  bio: "BIM Engineer. XR Designer."
-  location: "Indonesia"
-  email: "hi@fauzan.id"
-  github: "fauzanalfi"
-  linkedin: "fauzanalfi"
-  instagram: "fauzanalfi"
-  twitter: "fauzanalfi"
-
+  email: hi@fauzan.id
+  linkedin: fauzanalfi
 comments:
-  provider: "disqus"
+  provider: disqus
   disqus:
-    shortname: "fauzanalfi"
-
+    shortname: fauzanalfi
 breadcrumbs: false
-read_more: "disabled"
+read_more: disabled
 permalink: /posts/:title/
-
 plugins:
   - jekyll-feed
   - jekyll-sitemap
@@ -40,7 +35,6 @@ plugins:
   - jemoji
   - jekyll-include-cache
   - jekyll-remote-theme
-
 defaults:
   - scope:
       path: ""
@@ -58,16 +52,12 @@ defaults:
     values:
       layout: single
       author_profile: true
-
-# Exclude these files from your production _site
 exclude:
   - Gemfile
   - Gemfile.lock
   - LICENSE
   - README.md
   - CNAME
-
-# Robots are welcome
 include:
   - _pages
   - robots.txt
