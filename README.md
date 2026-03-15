@@ -40,9 +40,22 @@ Open CMS at:
 - `https://fauzanalfi.github.io/admin/`
 
 Current collections:
-- `posts` (folder: `_posts`)
-- `pages` (folder: `_pages`)
-- `site_settings` (file: `_data/navigation.yml`, for menu order)
+- `posts` (folder: `_posts`, includes SEO, tags, featured image, publish toggle)
+- `drafts` (folder: `_drafts`, for pre-publish writing workflow)
+- `pages` (folder: `_pages`, includes SEO + publish toggle)
+- `site_settings`:
+   - `Blog & SEO Settings` (file: `_config.yml`)
+   - `Navigation` (file: `_data/navigation.yml`)
+
+### WordPress-like CMS workflow (safe for Jekyll)
+
+- Manage global identity and blog title from:
+   - `Site Settings` → `Blog & SEO Settings`
+- Manage menu structure from:
+   - `Site Settings` → `Navigation`
+- Write first in `Drafts`, then move/publish to `Posts` when ready.
+- Use `publish_mode: editorial_workflow` for review-before-publish flow.
+- Use post/page `Published` toggle for controlled visibility.
 
 ### Navigation and Home setup
 
