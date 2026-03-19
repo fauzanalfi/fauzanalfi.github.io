@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<div class="page-wrap">
+  <section class="page-hero">
+    {% if page.eyebrow %}<span class="eyebrow">{{ page.eyebrow }}</span>{% endif %}
+    <h1 class="page-title">{{ page.title }}</h1>
+    {% if page.description %}<p class="page-summary">{{ page.description }}</p>{% endif %}
+    <label class="sr-only" for="site-search">Search the site</label>
+    <input id="site-search" class="page-search" type="search" placeholder="Search posts and research projects" data-search-page-input>
+  </section>
+
+  <section class="section-block">
+    <div data-search-results data-index-url="{{ '/search.json' | relative_url }}"></div>
+  </section>
+
+  {% include footer.html %}
+</div>

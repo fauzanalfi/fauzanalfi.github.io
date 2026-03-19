@@ -1,0 +1,165 @@
+---
+layout: default
+---
+
+{% assign featured_projects = site.research_projects | where: 'featured', true | sort: 'sort_order' %}
+{% assign regular_projects = site.research_projects | where: 'featured', false | sort: 'sort_order' %}
+{% assign projects = featured_projects | concat: regular_projects %}
+
+<div class="page-wrap">
+  <section class="page-hero">
+    <span class="eyebrow">Research portfolio</span>
+    <h1 class="page-title">{{ page.title }}</h1>
+    {% if page.description %}<p class="page-summary">{{ page.description }}</p>{% endif %}
+  </section>
+
+  <section class="section-block">
+    {% if content != '' %}<div class="page-content">{{ content }}</div>{% endif %}
+  </section>
+
+  <section class="section-block">
+    <div class="section-header">
+      <h2 class="section-title">Research Overview</h2>
+    </div>
+    <div class="project-list">
+      <article class="project-list__item">
+        <div class="project-list__content grid-stack">
+          <p class="meta-label">Current Program</p>
+          <h2 class="project-detail__title">{{ site.data.research.overview.title }}</h2>
+          <p class="project-card__summary">{{ site.data.research.overview.summary }}</p>
+          <div class="chip-row">
+            {% for keyword in site.data.research.keywords %}
+              <span class="chip">{{ keyword }}</span>
+            {% endfor %}
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-header"><h2 class="section-title">Focus Areas</h2></div>
+    <div class="related-grid">
+      {% for item in site.data.research.focus_areas %}
+        <article class="related-card">
+          <p class="meta-label">Area {{ forloop.index }}</p>
+          <h3 class="related-card__title">{{ item.title }}</h3>
+          <p class="post-card__summary">{{ item.summary }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-header"><h2 class="section-title">Research Workflow</h2></div>
+    <div class="related-grid">
+      {% for item in site.data.research.workflow %}
+        <article class="related-card">
+          <p class="meta-label">Step {{ forloop.index }}</p>
+          <h3 class="related-card__title">{{ item.title }}</h3>
+          <p class="post-card__summary">{{ item.summary }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-header">
+      <h2 class="section-title">Lab Members</h2>
+    </div>
+    <div class="project-list">
+      <article class="project-list__item">
+        <div class="project-list__content grid-stack">
+          <p class="meta-label">Bachelor</p>
+          <div class="page-content">
+            <ul>
+              {% for member in site.data.lab_members.bachelor %}
+                <li>{{ member.name }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        <div class="project-list__content grid-stack">
+          <p class="meta-label">Master</p>
+          <div class="page-content">
+            <ul>
+              {% for member in site.data.lab_members.master %}
+                <li>{{ member.name }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </article>
+      <article class="project-list__item">
+        <div class="project-list__content grid-stack">
+          <p class="meta-label">Alumni</p>
+          <div class="page-content">
+            <ul>
+              {% for member in site.data.lab_members.alumni %}
+                <li>{{ member.name }}{% if member.graduation %} ({{ member.graduation }}){% endif %}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-header">
+      <h2 class="section-title">Recent Publications</h2>
+    </div>
+    <div class="project-list">
+      <article class="project-list__item">
+        <div class="project-list__content grid-stack">
+          <p class="meta-label">Journal</p>
+          <div class="page-content">
+            <ul>
+              {% for item in site.data.publications.journal %}
+                <li><a href="{{ item.url }}">{{ item.citation }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        <div class="project-list__content grid-stack">
+          <p class="meta-label">International Conference</p>
+          <div class="page-content">
+            <ul>
+              {% for item in site.data.publications.conference %}
+                <li><a href="{{ item.url }}">{{ item.citation }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-header">
+      <h2 class="section-title">Selected Projects</h2>
+    </div>
+    {% if projects.size > 0 %}
+      <div class="project-list">
+        {% for project in projects %}
+          <article class="project-list__item">
+            <div class="project-list__content grid-stack">
+              <p class="meta-label">Project {{ forloop.index }}</p>
+              <h2 class="project-detail__title"><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h2>
+              {% if project.technologies %}
+                <div class="chip-row">{% for technology in project.technologies limit: 3 %}<span class="chip">{{ technology }}</span>{% endfor %}</div>
+              {% endif %}
+              <p class="project-card__summary">{{ project.description | default: project.excerpt | strip_html | truncatewords: 28 }}</p>
+              <a class="section-link" href="{{ project.url | relative_url }}">View project</a>
+            </div>
+            <div class="project-list__media">{% if project.featured_image %}<img src="{{ project.featured_image | relative_url }}" alt="{{ project.title }}">{% endif %}</div>
+          </article>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="empty-state">The research collection is configured. Add project entries to populate this section.</p>
+    {% endif %}
+  </section>
+
+  {% include footer.html %}
+</div>

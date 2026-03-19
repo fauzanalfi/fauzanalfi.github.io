@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+<div class="page-wrap">
+  <section class="page-hero{% if page.status %} page-hero--split{% endif %}">
+    <div class="grid-stack">
+      {% if page.eyebrow %}<span class="eyebrow">{{ page.eyebrow }}</span>{% endif %}
+      <h1 class="page-title">{{ page.title }}</h1>
+      {% if page.description %}<p class="page-summary">{{ page.description }}</p>{% endif %}
+    </div>
+    {% if page.status %}
+      <aside class="status-card">
+        <p class="meta-label">Current status</p>
+        <p class="status-card__value">{{ page.status }}</p>
+      </aside>
+    {% endif %}
+  </section>
+
+  <section class="section-block">
+    <div class="page-content">{{ content }}</div>
+  </section>
+
+  {% include footer.html %}
+</div>

@@ -1,0 +1,12 @@
+<footer class="footer-card">
+  <div class="footer-brand">
+    <p class="footer-brand__title">{{ site.title }}</p>
+    <p class="footer-brand__text">Built with precision and editorial restraint on GitHub Pages.</p>
+  </div>
+  <div class="footer-links">
+    {% if site.author.github %}<a href="https://github.com/{{ site.author.github }}">GitHub</a>{% endif %}
+    {% if site.author.linkedin %}<a href="https://www.linkedin.com/in/{{ site.author.linkedin }}/">LinkedIn</a>{% endif %}
+    <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+    <a href="{{ '/robots.txt' | relative_url }}">Privacy</a>
+  </div>
+</footer>

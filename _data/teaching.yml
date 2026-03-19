@@ -1,0 +1,23 @@
+focus_areas:
+  - title: BIM Workflow Literacy
+    summary: Teaching how model-based coordination supports design communication, technical review, and delivery clarity.
+  - title: XR for Spatial Understanding
+    summary: Using immersive media as a tool for design communication, scenario testing, and embodied review.
+  - title: Computational Thinking in Design
+    summary: Helping students move from software use toward systems thinking, reproducibility, and structured experimentation.
+
+approach:
+  - title: Studio-linked instruction
+    summary: Connect lectures and technical exercises to design decisions rather than teaching tools in isolation.
+  - title: Research-informed assignments
+    summary: Use contemporary BIM, XR, and interface questions as prompts for critical and technical project work.
+  - title: Clear technical scaffolding
+    summary: Break complex workflows into reusable, legible steps students can adapt to their own design contexts.
+
+formats:
+  - title: Lectures
+    summary: Core concepts, workflow framing, and critical context.
+  - title: Workshops
+    summary: Hands-on sessions focused on pipeline literacy and software execution.
+  - title: Supervision
+    summary: Guidance for students exploring computation, immersive media, and digital design methods.

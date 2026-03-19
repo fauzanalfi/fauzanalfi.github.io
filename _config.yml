@@ -9,6 +9,10 @@ timezone: Asia/Jakarta
 future: false
 remote_theme: academicpages/academicpages.github.io
 site_theme: default
+collections:
+  research_projects:
+    output: true
+    permalink: /research/:title/
 author:
   github: fauzanalfi
   bio: BIM Engineer. XR Designer.
@@ -19,6 +23,7 @@ author:
   avatar: ""
   email: hi@fauzan.id
   linkedin: fauzanalfi
+  cv_url: ""
 comments:
   provider: disqus
   disqus:
@@ -46,12 +51,21 @@ defaults:
       comments: true
       share: true
       related: true
+      featured: false
+      sort_order: 999
   - scope:
       path: ""
       type: pages
     values:
-      layout: single
-      author_profile: true
+      layout: page
+      author_profile: false
+  - scope:
+      path: ""
+      type: research_projects
+    values:
+      layout: research_project
+      featured: false
+      sort_order: 999
 exclude:
   - Gemfile
   - Gemfile.lock

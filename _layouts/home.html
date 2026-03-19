@@ -1,0 +1,92 @@
+---
+layout: default
+---
+
+{% assign featured_projects = site.research_projects | where: 'featured', true | sort: 'sort_order' %}
+{% assign non_featured_projects = site.research_projects | where: 'featured', false | sort: 'sort_order' %}
+{% assign all_projects = featured_projects | concat: non_featured_projects %}
+{% assign feature_project = featured_projects | first | default: all_projects.first %}
+
+{% assign featured_posts = site.posts | where: 'featured', true | sort: 'sort_order' %}
+{% assign regular_posts = site.posts | where: 'featured', false | sort: 'sort_order' %}
+{% assign ordered_posts = featured_posts | concat: regular_posts %}
+
+<div class="page-wrap">
+  <section class="home-hero">
+    <div class="home-hero__grid">
+      <div class="grid-stack">
+        <span class="eyebrow">{{ page.eyebrow | default: 'Editorial portfolio' }}</span>
+        <h1 class="home-hero__title">{{ page.hero_title | default: site.title }}</h1>
+        <p class="home-hero__summary">{{ page.hero_summary | default: page.description | default: site.description }}</p>
+      </div>
+      <aside class="status-card">
+        <p class="meta-label">Current status</p>
+        <p class="status-card__value">{{ page.status | default: 'Available for research collaboration' }}</p>
+      </aside>
+    </div>
+    {% if content != '' %}<div class="page-content">{{ content }}</div>{% endif %}
+  </section>
+
+  <section class="section-block">
+    <div class="section-header">
+      <h2 class="section-title">Current Projects</h2>
+      <a class="section-link" href="{{ '/research/' | relative_url }}">View all projects</a>
+    </div>
+    {% if feature_project %}
+      <div class="grid-stack">
+        <div class="project-grid">
+          {% include project-card.html project=feature_project variant='feature' cta='Case study' %}
+          {% assign accent_project = nil %}
+          {% for project in all_projects %}
+            {% if feature_project == nil or project.url != feature_project.url %}
+              {% assign accent_project = project %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+          {% if accent_project %}
+            {% include project-card.html project=accent_project variant='accent' cta='Open detail' %}
+          {% else %}
+            <article class="project-card project-card--accent">
+              <p class="meta-label">Research projects</p>
+              <h3 class="project-card__title">Structured project entries are ready for migration</h3>
+              <p class="project-card__summary">Next step is moving research themes into first-class collection documents managed from CMS.</p>
+            </article>
+          {% endif %}
+        </div>
+        {% assign rendered_secondary = 0 %}
+        {% assign secondary_markup = '' %}
+        {% capture secondary_markup %}
+          {% for project in all_projects %}
+            {% if feature_project == nil or project.url != feature_project.url %}
+              {% if accent_project == nil or project.url != accent_project.url %}
+                {% if rendered_secondary < 3 %}
+                  {% include project-card.html project=project %}
+                  {% assign rendered_secondary = rendered_secondary | plus: 1 %}
+                {% endif %}
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        {% endcapture %}
+        {% if rendered_secondary > 0 %}
+          <div class="project-grid__secondary">
+            {{ secondary_markup }}
+          </div>
+        {% endif %}
+      </div>
+    {% else %}
+      <p class="empty-state">Add documents to the research project collection to populate the home project grid.</p>
+    {% endif %}
+  </section>
+
+  <section class="section-block">
+    <div class="section-header">
+      <h2 class="section-title">Recent Posts</h2>
+      <a class="section-link" href="{{ '/blog/' | relative_url }}">Archive</a>
+    </div>
+    <div class="post-list">
+      {% for post in ordered_posts limit: 3 %}{% include post-card.html post=post %}{% endfor %}
+    </div>
+  </section>
+
+  {% include footer.html %}
+</div>

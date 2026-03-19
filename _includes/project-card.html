@@ -1,0 +1,11 @@
+<article class="project-card{% if include.variant %} project-card--{{ include.variant }}{% endif %}"{% if include.project.featured_image and include.variant == 'feature' %} style="background-image: url('{{ include.project.featured_image | relative_url }}');"{% endif %}>
+  {% if include.project.eyebrow %}<p class="meta-label">{{ include.project.eyebrow }}</p>{% endif %}
+  <h3 class="project-card__title">{% if include.project.url %}<a href="{{ include.project.url | relative_url }}">{{ include.project.title }}</a>{% else %}{{ include.project.title }}{% endif %}</h3>
+  {% if include.project.summary %}<p class="project-card__summary">{{ include.project.summary }}</p>{% endif %}
+  {% if include.project.tags %}
+    <div class="chip-row">
+      {% for tag in include.project.tags limit: 3 %}<span class="chip">{{ tag }}</span>{% endfor %}
+    </div>
+  {% endif %}
+  {% if include.project.url %}<a class="section-link" href="{{ include.project.url | relative_url }}">{{ include.cta | default: 'View project' }}</a>{% endif %}
+</article>

@@ -1,0 +1,56 @@
+---
+layout: default
+---
+
+<div class="page-wrap">
+  <section class="page-hero">
+    {% if page.eyebrow %}<span class="eyebrow">{{ page.eyebrow }}</span>{% endif %}
+    <h1 class="page-title">{{ page.title }}</h1>
+    {% if page.description %}<p class="page-summary">{{ page.description }}</p>{% endif %}
+  </section>
+
+  <section class="section-block">
+    <div class="page-content">{{ content }}</div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-header"><h2 class="section-title">Focus Areas</h2></div>
+    <div class="related-grid">
+      {% for item in site.data.teaching.focus_areas %}
+        <article class="related-card">
+          <p class="meta-label">Area {{ forloop.index }}</p>
+          <h3 class="related-card__title">{{ item.title }}</h3>
+          <p class="post-card__summary">{{ item.summary }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-header"><h2 class="section-title">Teaching Approach</h2></div>
+    <div class="related-grid">
+      {% for item in site.data.teaching.approach %}
+        <article class="related-card">
+          <p class="meta-label">Approach {{ forloop.index }}</p>
+          <h3 class="related-card__title">{{ item.title }}</h3>
+          <p class="post-card__summary">{{ item.summary }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-header"><h2 class="section-title">Formats</h2></div>
+    <div class="related-grid">
+      {% for item in site.data.teaching.formats %}
+        <article class="related-card">
+          <p class="meta-label">Format {{ forloop.index }}</p>
+          <h3 class="related-card__title">{{ item.title }}</h3>
+          <p class="post-card__summary">{{ item.summary }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  {% include footer.html %}
+</div>

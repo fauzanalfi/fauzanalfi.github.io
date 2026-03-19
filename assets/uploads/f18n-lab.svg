@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">F18N Lab visual</title>
+  <desc id="desc">Abstract composition suggesting layered BIM and XR research surfaces.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#101214"/>
+      <stop offset="100%" stop-color="#2f3c46"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f4efe8" stop-opacity="0.88"/>
+      <stop offset="100%" stop-color="#d6c7b2" stop-opacity="0.5"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <g opacity="0.18" stroke="#f7f2ea" stroke-width="2">
+    <path d="M120 180h1360"/>
+    <path d="M120 360h1360"/>
+    <path d="M120 540h1360"/>
+    <path d="M120 720h1360"/>
+    <path d="M260 120v660"/>
+    <path d="M520 120v660"/>
+    <path d="M780 120v660"/>
+    <path d="M1040 120v660"/>
+    <path d="M1300 120v660"/>
+  </g>
+  <rect x="210" y="160" width="900" height="520" rx="30" fill="#121212" stroke="#f4efe8" stroke-opacity="0.2"/>
+  <rect x="310" y="250" width="680" height="340" rx="24" fill="url(#glass)"/>
+  <path d="M340 520c120-140 240-210 360-210s240 70 360 210" fill="none" stroke="#17191c" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="430" cy="420" r="34" fill="#17191c"/>
+  <circle cx="790" cy="340" r="22" fill="#17191c"/>
+  <circle cx="950" cy="470" r="48" fill="#17191c"/>
+  <rect x="1180" y="220" width="180" height="420" rx="20" fill="#f4efe8" fill-opacity="0.08" stroke="#f4efe8" stroke-opacity="0.12"/>
+  <g fill="#f4efe8">
+    <text x="1225" y="310" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">F18N Lab</text>
+    <text x="1225" y="352" font-family="Inter, Arial, sans-serif" font-size="18" opacity="0.72">BIM + XR</text>
+    <text x="1225" y="384" font-family="Inter, Arial, sans-serif" font-size="18" opacity="0.72">Computational Design</text>
+  </g>
+</svg>

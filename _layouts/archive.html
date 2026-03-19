@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+<div class="page-wrap">
+  <section class="page-hero">
+    <span class="eyebrow">Blog archive</span>
+    <h1 class="page-title">{{ page.title | default: 'Archive & Reflections' }}</h1>
+    <p class="page-summary">{{ page.description | default: site.description }}</p>
+    <label class="sr-only" for="archive-filter">Filter posts</label>
+    <input id="archive-filter" class="page-search" type="search" placeholder="Search posts, categories, and tags" data-filter-input>
+  </section>
+
+  <section class="section-block">
+    <div class="post-list">
+      {% for post in site.posts %}{% include post-card.html post=post %}{% endfor %}
+    </div>
+  </section>
+
+  {% include footer.html %}
+</div>

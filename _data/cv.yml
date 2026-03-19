@@ -1,0 +1,33 @@
+experience:
+  - period: Present
+    title: Full-time Lecturer
+    organization: Architecture Program, Institut Teknologi Bandung
+    summary: Teaching and research at the intersection of architectural engineering, BIM, XR, and digital workflows.
+  - period: Previous
+    title: BIM Consultant
+    organization: Construction project work in Kalimantan, Indonesia
+    summary: Remote contribution to project coordination and model-based delivery workflows.
+  - period: Previous
+    title: Contributor to BIM competency standard initiative
+    organization: Institut BIM Indonesia and Ministry of Public Works & Housing
+    summary: Participated in competency-standard discussions related to BIM practice in Indonesia.
+
+education:
+  - period: 2022
+    title: Ph.D. in Architecture
+    organization: Shibaura Institute of Technology, Tokyo, Japan
+    summary: Doctoral research on evaluating architectural studio outcomes using an affordance-based design approach and immersive media.
+
+community:
+  - period: 2011-2023
+    title: Mozilla Reps Member
+    organization: Mozilla
+    summary: Long-term community contribution with particular involvement in localization work for Bahasa Indonesia.
+
+links:
+  - label: Research Projects
+    url: /research/
+  - label: Blog Archive
+    url: /blog/
+  - label: Contact
+    url: /about/

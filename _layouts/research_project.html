@@ -1,0 +1,80 @@
+---
+layout: default
+---
+
+<div class="page-wrap">
+  <article class="project-detail">
+    <header class="page-hero">
+      <span class="eyebrow">Research project{% if page.date %} {{ page.date | date: '%Y' }}{% if page.date_end %} - {{ page.date_end | date: '%Y' }}{% endif %}{% endif %}</span>
+      <h1 class="page-title">{{ page.title }}</h1>
+      {% if page.description %}<p class="page-summary">{{ page.description }}</p>{% endif %}
+      {% if page.technologies %}<div class="chip-row">{% for technology in page.technologies %}<span class="chip">{{ technology }}</span>{% endfor %}</div>{% endif %}
+    </header>
+
+    {% if page.featured_image %}<figure class="project-detail__hero"><img src="{{ page.featured_image | relative_url }}" alt="{{ page.title }}"></figure>{% endif %}
+
+    <section class="project-detail__overview">
+      <div class="page-content">{{ content }}</div>
+      <aside class="project-detail__aside">
+        {% if page.role %}<div><p class="meta-label">Role</p><strong>{{ page.role }}</strong></div>{% endif %}
+        {% if page.grant %}<div><p class="meta-label">Grant</p><strong>{{ page.grant }}</strong></div>{% endif %}
+        {% if page.status %}<div><p class="meta-label">Status</p><strong>{{ page.status }}</strong></div>{% endif %}
+      </aside>
+    </section>
+
+    {% if page.challenges %}
+      <section class="section-block">
+        <div class="section-header"><h2 class="section-title">Technical Challenges</h2></div>
+        <div class="related-grid">
+          {% for item in page.challenges %}
+            <article class="related-card">
+              <p class="meta-label">Challenge {{ forloop.index }}</p>
+              <h3 class="related-card__title">{{ item.title }}</h3>
+              <p class="post-card__summary">{{ item.summary }}</p>
+            </article>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if page.methodology %}
+      <section class="section-block">
+        <div class="section-header"><h2 class="section-title">Methodology</h2></div>
+        <div class="related-grid">
+          {% for item in page.methodology %}
+            <article class="related-card">
+              <p class="meta-label">Method {{ forloop.index }}</p>
+              <h3 class="related-card__title">{{ item.title }}</h3>
+              <p class="post-card__summary">{{ item.summary }}</p>
+            </article>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if page.metrics %}
+      <section class="section-block">
+        <div class="section-header"><h2 class="section-title">Results & Findings</h2></div>
+        <div class="metric-panel">
+          {% for metric in page.metrics %}<div class="metric-row"><span>{{ metric.label }}</span><strong>{{ metric.value }}</strong></div>{% endfor %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if page.publications %}
+      <section class="section-block">
+        <div class="section-header"><h2 class="section-title">Related Publications</h2></div>
+        <div class="related-grid">
+          {% for item in page.publications %}
+            <article class="related-card">
+              <p class="meta-label">{{ item.venue }}</p>
+              <h3 class="related-card__title">{% if item.url %}<a href="{{ item.url }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</h3>
+            </article>
+          {% endfor %}
+        </div>
+      </section>
+    {% endif %}
+  </article>
+
+  {% include footer.html %}
+</div>

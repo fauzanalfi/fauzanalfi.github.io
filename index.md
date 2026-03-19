@@ -2,11 +2,6 @@
 layout: archive
 title: "Blog"
 permalink: /blog/
-author_profile: true
+author_profile: false
+description: "Archive and reflections on BIM, XR design, workflow systems, and computational research."
 ---
-
-{% include base_path %}
-
-{% for post in site.posts %}
-	{% include archive-single.html %}
-{% endfor %}

@@ -1,0 +1,24 @@
+<header class="mobile-header">
+  <div>
+    <div class="eyebrow">{{ site.author.bio | default: site.description }}</div>
+    <strong>{{ site.title }}</strong>
+  </div>
+  <div class="topbar__actions">
+    <button class="mobile-menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-panel">Menu</button>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme">Theme</button>
+  </div>
+</header>
+<div class="mobile-panel" id="mobile-panel" data-mobile-panel>
+  <nav class="utility-nav" aria-label="Mobile navigation">
+    {% for item in site.data.navigation.main %}
+      {% assign current = false %}
+      {% if page.url == item.url %}
+        {% assign current = true %}
+      {% elsif item.url != '/' and page.url contains item.url %}
+        {% assign current = true %}
+      {% endif %}
+      <a href="{{ item.url | relative_url }}"{% if current %} class="is-active" aria-current="page"{% endif %}>{{ item.title }}</a>
+    {% endfor %}
+    <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} class="is-active" aria-current="page"{% endif %}>About</a>
+  </nav>
+</div>

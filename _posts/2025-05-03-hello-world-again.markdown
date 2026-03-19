@@ -2,6 +2,8 @@
 layout: post
 title:  "Coming Soon! Exciting Things Are Happening Here!"
 date:   2025-05-03 16:30:00 +0700
+featured: false
+sort_order: 20
 ---
 Hey there!
 

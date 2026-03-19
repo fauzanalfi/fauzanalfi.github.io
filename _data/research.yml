@@ -1,0 +1,26 @@
+overview:
+  title: F18N Lab
+  summary: Building a multidisciplinary research environment that applies computing technology to architectural engineering workflows, with current emphasis on BIM, XR, and digital twin integration.
+
+keywords:
+  - BIM
+  - XR
+  - Digital Twin
+  - Computational Design
+  - Affordance-based Design
+
+focus_areas:
+  - title: Immersive Design Review
+    summary: Evaluating how spatial judgement shifts when architectural proposals are experienced in immersive media.
+  - title: Data-Centric Project Intelligence
+    summary: Structuring project data so technical and design decisions remain traceable across collaborative workflows.
+  - title: Environmental and Urban Simulation
+    summary: Extending digital twin methods toward ecological and urban-scale representation.
+
+workflow:
+  - title: Problem Framing
+    summary: Define research questions around communication gaps, review friction, or workflow uncertainty.
+  - title: Method Prototyping
+    summary: Build and test computational or immersive prototypes with measurable criteria.
+  - title: Knowledge Transfer
+    summary: Package findings into teaching material, project guidelines, and publishable case studies.

@@ -1,9 +1,84 @@
 ---
-layout: single
-author_profile: true
-comments: true
-share: true
-related: true
+layout: default
 ---
 
-{{ content }}
+{% assign teaser = page.header.teaser | default: page.image %}
+
+<div class="page-wrap">
+	<article class="post-detail">
+		<header class="post-header">
+			<a class="post-back" href="{{ '/blog/' | relative_url }}">Back to blog</a>
+			<div class="chip-row">
+				{% for category in page.categories limit: 2 %}<span class="chip">{{ category }}</span>{% endfor %}
+				{% for tag in page.tags limit: 2 %}<span class="chip">{{ tag }}</span>{% endfor %}
+			</div>
+			<h1 class="post-header__title">{{ page.title }}</h1>
+			{% if page.description %}<p class="post-header__summary">{{ page.description }}</p>{% endif %}
+			<div class="post-meta-row">
+				<div class="post-meta-block">
+					<p class="meta-label">Published</p>
+					<strong>{{ page.date | date: "%B %d, %Y" }}</strong>
+				</div>
+				{% if page.read_time %}
+					<div class="post-meta-block">
+						<p class="meta-label">Reading time</p>
+						<strong>{{ content | number_of_words | divided_by: 180 | plus: 1 }} min read</strong>
+					</div>
+				{% endif %}
+				<div class="post-meta-block">
+					<p class="meta-label">Share</p>
+					<strong><a href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url | uri_escape }}&text={{ page.title | uri_escape }}">Post link</a></strong>
+				</div>
+			</div>
+		</header>
+
+		{% if teaser %}
+			<figure class="post-hero">
+				<img src="{{ teaser | relative_url }}" alt="{{ page.title }}">
+			</figure>
+		{% endif %}
+
+		<div class="content-body">
+			{{ content }}
+		</div>
+
+		<section class="author-card">
+			<div class="author-card__avatar">
+				{% if site.author.avatar %}<img src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }}">{% endif %}
+			</div>
+			<div class="grid-stack">
+				<p class="author-card__name">{{ site.author.name | default: site.title }}</p>
+				<p class="author-card__bio">{{ site.author.bio | default: site.description }}</p>
+				<div class="footer-links">
+					{% if site.author.twitter %}<a href="https://twitter.com/{{ site.author.twitter }}">Twitter</a>{% endif %}
+					{% if site.author.github %}<a href="https://github.com/{{ site.author.github }}">GitHub</a>{% endif %}
+					{% if site.author.linkedin %}<a href="https://www.linkedin.com/in/{{ site.author.linkedin }}/">LinkedIn</a>{% endif %}
+				</div>
+			</div>
+		</section>
+
+		{% assign related_count = 0 %}
+		{% capture related_markup %}
+			{% for post in site.posts %}
+				{% if post.url != page.url and related_count < 2 %}
+					<article class="related-card">
+						<p class="meta-label">{{ post.date | date: "%B %Y" }}</p>
+						<h3 class="related-card__title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+						<p class="post-card__summary">{{ post.description | default: post.excerpt | strip_html | truncatewords: 18 }}</p>
+					</article>
+					{% assign related_count = related_count | plus: 1 %}
+				{% endif %}
+			{% endfor %}
+		{% endcapture %}
+		{% if related_count > 0 %}
+			<section class="section-block">
+				<div class="section-header"><h2 class="section-title">Related Writing</h2></div>
+				<div class="related-grid">
+					{{ related_markup }}
+				</div>
+			</section>
+		{% endif %}
+	</article>
+
+	{% include footer.html %}
+</div>

@@ -1,8 +1,11 @@
 ---
-layout: single
+layout: page
 title: Now
 permalink: /now/
-author_profile: true
+author_profile: false
+description: "A brief overview of my current intellectual pursuits, professional focus, and what I am learning right now."
+eyebrow: "Current status"
+status: "Updated March 2026"
 ---
 # ⚔ What am I up to?
 

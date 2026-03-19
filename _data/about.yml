@@ -1,0 +1,26 @@
+profile:
+  - title: Background
+    summary: Architectural engineering educator and researcher focusing on BIM workflows, XR interfaces, and computational design methods.
+  - title: Current Work
+    summary: Building a structured editorial and research portfolio that connects long-form writing, project documentation, and teaching artifacts.
+  - title: Collaboration Focus
+    summary: Open to research collaboration in design review workflows, immersive communication systems, and digital twin applications.
+
+expertise:
+  - title: BIM Workflow Design
+    summary: Translating model-based delivery methods into legible and repeatable decision-support systems.
+  - title: Spatial Computing and XR
+    summary: Studying immersive interfaces for architectural review, pedagogy, and interdisciplinary communication.
+  - title: Research-to-Practice Translation
+    summary: Converting technical experiments into applied frameworks for studios, teams, and institutional contexts.
+
+timeline:
+  - period: Present
+    title: F18N Lab Development
+    summary: Establishing a multidisciplinary lab direction around BIM, XR, and computational design.
+  - period: 2022
+    title: Doctoral Completion
+    summary: Completed Ph.D. in Architecture with work on affordance-based design review and immersive media.
+  - period: 2011-2023
+    title: Community Contribution
+    summary: Long-term participation in open knowledge and localization communities.

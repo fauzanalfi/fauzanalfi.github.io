@@ -1,0 +1,38 @@
+{% assign avatar = site.author.avatar | default: page.author_avatar %}
+<aside class="site-sidebar" aria-label="Primary sidebar">
+  <div class="site-sidebar__section">
+    <div class="site-brand">
+      <div class="site-brand__avatar">
+        {% if avatar %}
+          <img src="{{ avatar | relative_url }}" alt="{{ site.author.name | default: site.title }}">
+        {% endif %}
+      </div>
+      <div>
+        <p class="site-brand__name">{{ site.author.name | default: site.title }}</p>
+        <p class="site-brand__bio">{{ site.author.bio | default: site.description }}</p>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav" aria-label="Sidebar navigation">
+      {% for item in site.data.navigation.main %}
+        {% assign current = false %}
+        {% if page.url == item.url %}
+          {% assign current = true %}
+        {% elsif item.url != '/' and page.url contains item.url %}
+          {% assign current = true %}
+        {% endif %}
+        <a href="{{ item.url | relative_url }}"{% if current %} class="is-active" aria-current="page"{% endif %}>{{ item.title }}</a>
+      {% endfor %}
+      <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} class="is-active" aria-current="page"{% endif %}>About</a>
+    </nav>
+  </div>
+
+  <div class="site-sidebar__section">
+    <a class="sidebar-cta" href="{{ site.author.cv_url | default: '/about/' | relative_url }}">Download CV</a>
+    <div class="sidebar-meta" aria-label="Social links">
+      {% if site.author.email %}<a href="mailto:{{ site.author.email }}">Contact</a>{% endif %}
+      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+      {% if site.author.github %}<a href="https://github.com/{{ site.author.github }}">GitHub</a>{% endif %}
+    </div>
+  </div>
+</aside>

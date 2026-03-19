@@ -1,9 +1,10 @@
 ---
 permalink: /about/
 title: "About"
-author_profile: true
+layout: about
+author_profile: false
+description: "Context on my background, current work, and the research questions that shape this site."
+eyebrow: "Profile"
 ---
 
-Halo! Ini halaman profil singkat saya.
-
-Saya menulis tentang BIM, XR, dan eksperimen digital di blog ini.
+This page provides a concise overview of my background, active focus areas, and current collaboration priorities.

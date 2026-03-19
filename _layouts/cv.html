@@ -1,0 +1,77 @@
+---
+layout: default
+---
+
+<div class="page-wrap">
+  <section class="page-hero">
+    {% if page.eyebrow %}<span class="eyebrow">{{ page.eyebrow }}</span>{% endif %}
+    <h1 class="page-title">{{ page.title }}</h1>
+    {% if page.description %}<p class="page-summary">{{ page.description }}</p>{% endif %}
+  </section>
+
+  <section class="section-block">
+    <div class="page-content">{{ content }}</div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-header"><h2 class="section-title">Experience</h2></div>
+    <div class="taxonomy-results">
+      {% for item in site.data.cv.experience %}
+        <article class="taxonomy-group">
+          <div class="taxonomy-group__item">
+            <h3 class="taxonomy-group__title">{{ item.title }}</h3>
+            <span class="taxonomy-group__meta">{{ item.period }}</span>
+          </div>
+          <p class="meta-label">{{ item.organization }}</p>
+          <p class="post-card__summary">{{ item.summary }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-header"><h2 class="section-title">Education</h2></div>
+    <div class="taxonomy-results">
+      {% for item in site.data.cv.education %}
+        <article class="taxonomy-group">
+          <div class="taxonomy-group__item">
+            <h3 class="taxonomy-group__title">{{ item.title }}</h3>
+            <span class="taxonomy-group__meta">{{ item.period }}</span>
+          </div>
+          <p class="meta-label">{{ item.organization }}</p>
+          <p class="post-card__summary">{{ item.summary }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-header"><h2 class="section-title">Community</h2></div>
+    <div class="taxonomy-results">
+      {% for item in site.data.cv.community %}
+        <article class="taxonomy-group">
+          <div class="taxonomy-group__item">
+            <h3 class="taxonomy-group__title">{{ item.title }}</h3>
+            <span class="taxonomy-group__meta">{{ item.period }}</span>
+          </div>
+          <p class="meta-label">{{ item.organization }}</p>
+          <p class="post-card__summary">{{ item.summary }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-header"><h2 class="section-title">Links</h2></div>
+    <div class="related-grid">
+      {% for item in site.data.cv.links %}
+        <article class="related-card">
+          <p class="meta-label">Navigate</p>
+          <h3 class="related-card__title"><a href="{{ item.url | relative_url }}">{{ item.label }}</a></h3>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  {% include footer.html %}
+</div>

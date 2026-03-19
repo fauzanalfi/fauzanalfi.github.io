@@ -1,0 +1,28 @@
+---
+layout: null
+---
+[
+{% assign project_count = site.research_projects | size %}
+{% for post in site.posts %}
+  {
+    "title": {{ post.title | jsonify }},
+    "url": {{ post.url | relative_url | jsonify }},
+    "type": "post",
+    "description": {{ post.description | default: post.excerpt | strip_html | strip_newlines | jsonify }},
+    "content": {{ post.content | strip_html | strip_newlines | jsonify }},
+    "categories": {{ post.categories | jsonify }},
+    "tags": {{ post.tags | jsonify }}
+  }{% unless forloop.last and project_count == 0 %},{% endunless %}
+{% endfor %}
+{% for project in site.research_projects %}
+  {
+    "title": {{ project.title | jsonify }},
+    "url": {{ project.url | relative_url | jsonify }},
+    "type": "research_project",
+    "description": {{ project.description | default: project.excerpt | strip_html | strip_newlines | jsonify }},
+    "content": {{ project.content | strip_html | strip_newlines | jsonify }},
+    "categories": {{ project.categories | jsonify }},
+    "tags": {{ project.tags | default: project.technologies | jsonify }}
+  }{% unless forloop.last %},{% endunless %}
+{% endfor %}
+]

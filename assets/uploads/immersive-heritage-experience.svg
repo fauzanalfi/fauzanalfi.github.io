@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Immersive heritage visual</title>
+  <desc id="desc">Warm layered arches representing heritage spaces adapted for immersive media.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#e7d7c1"/>
+      <stop offset="100%" stop-color="#b9c8b2"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect x="150" y="110" width="1300" height="680" rx="40" fill="#f7f2ea" fill-opacity="0.42"/>
+  <g fill="none" stroke-linecap="round">
+    <path d="M370 690c0-190 154-344 344-344s344 154 344 344" stroke="#1f2324" stroke-opacity="0.72" stroke-width="70"/>
+    <path d="M500 690c0-118 96-214 214-214s214 96 214 214" stroke="#434b45" stroke-opacity="0.68" stroke-width="54"/>
+    <path d="M620 690c0-52 42-94 94-94s94 42 94 94" stroke="#d8d2ca" stroke-width="38"/>
+  </g>
+  <rect x="1020" y="200" width="250" height="340" rx="24" fill="#f7f2ea" fill-opacity="0.64"/>
+  <text x="1068" y="308" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" fill="#1f2324">Affordable Immersive</text>
+  <text x="1068" y="340" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" fill="#1f2324">Heritage Experience</text>
+</svg>

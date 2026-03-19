@@ -1,10 +1,14 @@
 ---
-layout: single
+layout: home
 title: "Home"
 permalink: /
-author_profile: true
+description: "I am a BIM Engineer and XR Designer investigating the intersection of physical infrastructure and spatial computing."
+eyebrow: "Editorial portfolio"
+hero_title: "Home"
+hero_summary: "I am a BIM Engineer and XR Designer investigating the intersection of physical infrastructure and spatial computing. My work focuses on translating complex architectural data into immersive, actionable environments."
+status: "Available for research collaboration"
 ---
 
-Welcome to my website.
+This redesign starts by moving the site away from the stock remote-theme shell and into a local editorial layout system.
 
-You can edit this Home page from Decap CMS under the **Pages** collection.
+The next implementation step is migrating research entries into structured project documents so the featured grid can be fully driven from CMS.

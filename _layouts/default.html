@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="{{ page.lang | default: site.locale | default: 'en' }}">
+  <head>
+    {% include head.html %}
+  </head>
+  <body>
+    <div class="site-shell">
+      {% include sidebar.html %}
+      <main class="site-main" id="main-content">
+        {% include mobile-header.html %}
+        {% include topbar.html %}
+        {{ content }}
+      </main>
+    </div>
+    <script src="{{ '/assets/js/site.js' | relative_url }}"></script>
+  </body>
+</html>
