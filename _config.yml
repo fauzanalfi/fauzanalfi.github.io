@@ -9,21 +9,17 @@ timezone: Asia/Jakarta
 future: false
 remote_theme: academicpages/academicpages.github.io
 site_theme: default
-collections:
-  research_projects:
-    output: true
-    permalink: /research/:title/
 author:
+  cv_url: ""
   github: fauzanalfi
   bio: BIM Engineer. XR Designer.
   name: Fauzan
   instagram: fauzanalfi
   twitter: fauzanalfi
   location: Indonesia
-  avatar: ""
+  avatar: /assets/uploads/515513780_10162745596393544_8496920479865372743_n.jpg
   email: hi@fauzan.id
   linkedin: fauzanalfi
-  cv_url: ""
 comments:
   provider: disqus
   disqus:
@@ -75,3 +71,7 @@ exclude:
 include:
   - _pages
   - robots.txt
+collections:
+  research_projects:
+    output: true
+    permalink: /research/:title/
