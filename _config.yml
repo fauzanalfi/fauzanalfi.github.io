@@ -1,7 +1,7 @@
 locale: en-US
 title: Fauzan Alfi
 name: Fauzan Alfi
-description: BIM Engineer. XR Designer.
+description: Lecturer @ ITB. Certified BIM Manager
 url: https://fauzanalfi.github.io
 baseurl: ""
 repository: fauzanalfi/fauzanalfi.github.io
@@ -12,12 +12,12 @@ site_theme: default
 author:
   cv_url: ""
   github: fauzanalfi
-  bio: BIM Engineer. XR Designer.
-  name: Fauzan
+  bio: Lecturer @ ITB. Certified BIM Manager
+  name: Fauzan Alfi
   instagram: fauzanalfi
   twitter: fauzanalfi
   location: Indonesia
-  avatar: /assets/uploads/515513780_10162745596393544_8496920479865372743_n.jpg
+  avatar: https://scontent.fbdo7-1.fna.fbcdn.net/v/t39.30808-6/515513780_10162745596393544_8496920479865372743_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=53a332&_nc_eui2=AeEdijYpA_tSM63rgN6IA39uUy8fUaJRzuZTLx9RolHO5lI_itThCU4q0MvuqiC2zHU&_nc_ohc=UCU35jPkPGgQ7kNvwFUKYjX&_nc_oc=AdquOmmNxsYFh5kURg2sGq0UmbPWe3ar2d4iKjggV1PnS9oRoSC3AZOlrNZS-EjM9zZHQbkzDzVpU3crVuh3Ulxo&_nc_zt=23&_nc_ht=scontent.fbdo7-1.fna&_nc_gid=D4Ke_D5NoxDpn71pO3g4fw&_nc_ss=7a30f&oh=00_Afy6xDQKeWPsh-u3g5eGWtBRDkned6QT7bJc74P9KJOLpA&oe=69C2ACA9
   email: hi@fauzan.id
   linkedin: fauzanalfi
 comments:
