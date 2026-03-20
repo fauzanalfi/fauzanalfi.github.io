@@ -16,11 +16,22 @@
     const searchResults = document.querySelector("[data-search-results]");
     const taxonomyResults = document.querySelector("[data-taxonomy-results]");
 
+    function syncThemeToggleState() {
+      const isDark = root.classList.contains("theme-dark");
+      toggleButtons.forEach(function (button) {
+        button.setAttribute("aria-pressed", String(isDark));
+        button.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+      });
+    }
+
+    syncThemeToggleState();
+
     toggleButtons.forEach(function (button) {
       button.addEventListener("click", function () {
         const nextIsDark = !root.classList.contains("theme-dark");
         root.classList.toggle("theme-dark", nextIsDark);
         window.localStorage.setItem("site-theme", nextIsDark ? "dark" : "light");
+        syncThemeToggleState();
       });
     });
 
@@ -164,8 +175,12 @@
     }
 
     if (searchPageInput && searchResults) {
+      const searchParams = new URLSearchParams(window.location.search);
+      const initialQuery = (searchParams.get("q") || "").trim();
+
       loadIndexData(searchResults, function (entries) {
-        renderSearchResults(entries, "");
+        searchPageInput.value = initialQuery;
+        renderSearchResults(entries, initialQuery.toLowerCase());
 
         searchPageInput.addEventListener("input", function () {
           renderSearchResults(entries, searchPageInput.value.trim().toLowerCase());

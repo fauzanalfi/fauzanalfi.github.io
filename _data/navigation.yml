@@ -1,13 +1,26 @@
-main:
-  - title: Home
-    url: /
-  - title: Now
-    url: /now/
-  - title: Research
-    url: /research/
+top:
   - title: Blog
     url: /blog/
+  - title: Archive
+    url: /blog/
+  - title: Categories
+    url: /categories/
+  - title: Tags
+    url: /tags/
+
+sidebar:
+  - title: Research
+    url: /research/
+    icon: research
+  - title: Publications
+    url: /blog/
+    icon: publications
+  - title: Projects
+    url: /research/
+    icon: projects
   - title: Teaching
     url: /teaching/
+    icon: teaching
   - title: CV
     url: /cv/
+    icon: cv

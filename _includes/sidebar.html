@@ -1,4 +1,5 @@
 {% assign avatar = site.author.avatar | default: page.author_avatar %}
+{% assign sidebar_links = site.data.navigation.sidebar | default: site.data.navigation.main %}
 <aside class="site-sidebar" aria-label="Primary sidebar">
   <div class="site-sidebar__section">
     <div class="site-brand">
@@ -14,25 +15,36 @@
     </div>
 
     <nav class="sidebar-nav" aria-label="Sidebar navigation">
-      {% for item in site.data.navigation.main %}
+      {% for item in sidebar_links %}
         {% assign current = false %}
         {% if page.url == item.url %}
           {% assign current = true %}
         {% elsif item.url != '/' and page.url contains item.url %}
           {% assign current = true %}
         {% endif %}
-        <a href="{{ item.url | relative_url }}"{% if current %} class="is-active" aria-current="page"{% endif %}>{{ item.title }}</a>
+        <a href="{{ item.url | relative_url }}"{% if current %} class="is-active" aria-current="page"{% endif %}>
+          {% include icon.html name=item.icon class='icon sidebar-nav__icon' %}
+          <span>{{ item.title }}</span>
+        </a>
       {% endfor %}
-      <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} class="is-active" aria-current="page"{% endif %}>About</a>
     </nav>
   </div>
 
   <div class="site-sidebar__section">
-    <a class="sidebar-cta" href="{{ site.author.cv_url | default: '/about/' | relative_url }}">Download CV</a>
     <div class="sidebar-meta" aria-label="Social links">
-      {% if site.author.email %}<a href="mailto:{{ site.author.email }}">Contact</a>{% endif %}
-      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
-      {% if site.author.github %}<a href="https://github.com/{{ site.author.github }}">GitHub</a>{% endif %}
+      {% if site.author.email %}
+        <a href="mailto:{{ site.author.email }}" aria-label="Contact">
+          {% include icon.html name='mail' class='icon sidebar-nav__icon' %}
+        </a>
+      {% endif %}
+      <a href="{{ '/feed.xml' | relative_url }}" aria-label="RSS">
+        {% include icon.html name='rss' class='icon sidebar-nav__icon' %}
+      </a>
+      {% if site.author.github %}
+        <a href="https://github.com/{{ site.author.github }}" aria-label="GitHub">
+          {% include icon.html name='github' class='icon sidebar-nav__icon' %}
+        </a>
+      {% endif %}
     </div>
   </div>
 </aside>

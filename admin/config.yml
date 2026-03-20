@@ -107,13 +107,30 @@ collections:
         label: Navigation
         file: _data/navigation.yml
         fields:
-          - label: Main Menu
-            name: main
+          - label: Top Menu
+            name: top
             widget: list
             summary: "{{fields.title}} → {{fields.url}}"
             fields:
               - { label: Title, name: title, widget: string }
               - { label: URL, name: url, widget: string, hint: "Contoh: /, /blog/, /about/" }
+          - label: Sidebar Menu
+            name: sidebar
+            widget: list
+            summary: "{{fields.title}} → {{fields.url}} ({{fields.icon}})"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: URL, name: url, widget: string, hint: "Contoh: /research/, /teaching/, /cv/" }
+              - label: Icon
+                name: icon
+                widget: select
+                options:
+                  - { label: Research, value: research }
+                  - { label: Publications, value: publications }
+                  - { label: Projects, value: projects }
+                  - { label: Teaching, value: teaching }
+                  - { label: CV, value: cv }
+                required: true
 
   - name: core_pages
     label: Core Pages

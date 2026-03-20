@@ -1,14 +1,28 @@
 <nav class="topbar" aria-label="Section navigation">
+  {% assign top_links = site.data.navigation.top | default: site.data.navigation.main %}
   <div class="topbar__links">
-    <a class="topbar__link{% if page.url == '/blog/' or page.layout == 'post' %} is-active{% endif %}" href="{{ '/blog/' | relative_url }}">Blog</a>
-    <a class="topbar__link{% if page.url == '/archive/' %} is-active{% endif %}" href="{{ '/blog/' | relative_url }}">Archive</a>
-    <a class="topbar__link{% if page.url == '/categories/' %} is-active{% endif %}" href="{{ '/categories/' | relative_url }}">Categories</a>
-    <a class="topbar__link{% if page.url == '/tags/' %} is-active{% endif %}" href="{{ '/tags/' | relative_url }}">Tags</a>
-    <a class="topbar__link{% if page.url == '/research/' or page.layout == 'research_project' %} is-active{% endif %}" href="{{ '/research/' | relative_url }}">Research</a>
-    <a class="topbar__link{% if page.url == '/now/' %} is-active{% endif %}" href="{{ '/now/' | relative_url }}">Now</a>
-    <a class="topbar__link{% if page.url == '/search/' %} is-active{% endif %}" href="{{ '/search/' | relative_url }}">Search</a>
+    {% for item in top_links %}
+      {% assign current = false %}
+      {% if page.url == item.url %}
+        {% assign current = true %}
+      {% elsif item.url != '/' and page.url contains item.url %}
+        {% assign current = true %}
+      {% endif %}
+      <a class="topbar__link{% if current %} is-active{% endif %}" href="{{ item.url | relative_url }}"{% if current %} aria-current="page"{% endif %}>{{ item.title }}</a>
+    {% endfor %}
   </div>
   <div class="topbar__actions">
-    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme">Theme</button>
+    <form class="topbar-search" action="{{ '/search/' | relative_url }}" method="get" role="search">
+      <label class="sr-only" for="topbar-search-input">Search the site</label>
+      <input id="topbar-search-input" class="topbar-search__input" name="q" type="search" placeholder="Search">
+      <button class="topbar-search__button" type="submit" aria-label="Submit search">
+        {% include icon.html name='search' class='icon icon--sm' %}
+      </button>
+    </form>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+      {% include icon.html name='sun' class='icon theme-toggle__icon theme-toggle__icon--sun' %}
+      {% include icon.html name='moon' class='icon theme-toggle__icon theme-toggle__icon--moon' %}
+      <span class="sr-only">Toggle color theme</span>
+    </button>
   </div>
 </nav>
