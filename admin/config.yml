@@ -179,6 +179,20 @@ collections:
           - { label: Description, name: description, widget: text, required: false }
           - { label: Eyebrow, name: eyebrow, widget: string, required: false }
           - { label: Body, name: body, widget: markdown }
+      - name: professional_projects_page
+        label: Professional Projects
+        file: _pages/professional-projects.md
+        fields:
+          - { label: Layout, name: layout, widget: hidden, default: research }
+          - { label: Title, name: title, widget: string }
+          - { label: Permalink, name: permalink, widget: string }
+          - { label: Description, name: description, widget: text, required: false }
+          - { label: Project Collection, name: project_collection, widget: hidden, default: professional_projects }
+          - { label: Portfolio Eyebrow, name: portfolio_eyebrow, widget: string, required: false }
+          - { label: Overview Title, name: overview_title, widget: string, required: false }
+          - { label: Workflow Title, name: workflow_title, widget: string, required: false }
+          - { label: Selected Projects Title, name: selected_projects_title, widget: string, required: false }
+          - { label: Body, name: body, widget: markdown }
       - name: search_page
         label: Search
         file: _pages/search.md
@@ -450,6 +464,75 @@ collections:
     format: yaml-frontmatter
     slug: "{{slug}}"
     preview_path: "/research/{{slug}}/"
+    editor:
+      preview: true
+    fields:
+      - { label: Layout, name: layout, widget: hidden, default: research_project }
+      - { label: Title, name: title, widget: string }
+      - { label: Description, name: description, widget: text, required: false }
+      - { label: Start Date, name: date, widget: datetime, required: false }
+      - { label: End Date, name: date_end, widget: datetime, required: false }
+      - { label: Featured Image, name: featured_image, widget: image, required: false }
+      - { label: Role, name: role, widget: string, required: false }
+      - { label: Grant, name: grant, widget: string, required: false }
+      - { label: Status, name: status, widget: string, required: false }
+      - { label: Featured on Home, name: featured, widget: boolean, required: false, default: false }
+      - { label: Manual Sort Order, name: sort_order, widget: number, required: false, default: 999, value_type: int, min: 1 }
+      - label: Categories
+        name: categories
+        widget: list
+        required: false
+        field: { label: Category, name: category, widget: string }
+      - label: Tags
+        name: tags
+        widget: list
+        required: false
+        field: { label: Tag, name: tag, widget: string }
+      - label: Technologies
+        name: technologies
+        widget: list
+        required: false
+        field: { label: Technology, name: technology, widget: string }
+      - label: Metrics
+        name: metrics
+        required: false
+        widget: list
+        fields:
+          - { label: Label, name: label, widget: string }
+          - { label: Value, name: value, widget: string }
+      - label: Challenges
+        name: challenges
+        required: false
+        widget: list
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Summary, name: summary, widget: text }
+      - label: Methodology
+        name: methodology
+        required: false
+        widget: list
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Summary, name: summary, widget: text }
+      - label: Publications
+        name: publications
+        required: false
+        widget: list
+        fields:
+          - { label: Venue, name: venue, widget: string }
+          - { label: Title, name: title, widget: string }
+          - { label: URL, name: url, widget: string, required: false }
+      - { label: Body, name: body, widget: markdown }
+
+  - name: professional_projects
+    label: Professional Projects
+    label_singular: Professional Project
+    folder: _professional_projects
+    create: true
+    extension: md
+    format: yaml-frontmatter
+    slug: "{{slug}}"
+    preview_path: "/professional-projects/{{slug}}/"
     editor:
       preview: true
     fields:

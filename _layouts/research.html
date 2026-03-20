@@ -2,13 +2,19 @@
 layout: default
 ---
 
-{% assign featured_projects = site.research_projects | where: 'featured', true | sort: 'sort_order' %}
-{% assign regular_projects = site.research_projects | where: 'featured', false | sort: 'sort_order' %}
+{% assign project_collection = page.project_collection | default: 'research_projects' %}
+{% assign selected_collection = site[project_collection] %}
+{% assign featured_projects = selected_collection | where: 'featured', true | sort: 'sort_order' %}
+{% assign regular_projects = selected_collection | where: 'featured', false | sort: 'sort_order' %}
 {% assign projects = featured_projects | concat: regular_projects %}
+{% assign portfolio_eyebrow = page.portfolio_eyebrow | default: 'Research portfolio' %}
+{% assign overview_title = page.overview_title | default: 'Research Overview' %}
+{% assign workflow_title = page.workflow_title | default: 'Research Workflow' %}
+{% assign selected_projects_title = page.selected_projects_title | default: 'Selected Projects' %}
 
 <div class="page-wrap">
   <section class="page-hero">
-    <span class="eyebrow">Research portfolio</span>
+    <span class="eyebrow">{{ portfolio_eyebrow }}</span>
     <h1 class="page-title">{{ page.title }}</h1>
     {% if page.description %}<p class="page-summary">{{ page.description }}</p>{% endif %}
   </section>
@@ -19,7 +25,7 @@ layout: default
 
   <section class="section-block">
     <div class="section-header">
-      <h2 class="section-title">Research Overview</h2>
+      <h2 class="section-title">{{ overview_title }}</h2>
     </div>
     <div class="project-list">
       <article class="project-list__item">
@@ -51,7 +57,7 @@ layout: default
   </section>
 
   <section class="section-block">
-    <div class="section-header"><h2 class="section-title">Research Workflow</h2></div>
+    <div class="section-header"><h2 class="section-title">{{ workflow_title }}</h2></div>
     <div class="related-grid">
       {% for item in site.data.research.workflow %}
         <article class="related-card">
@@ -137,7 +143,7 @@ layout: default
 
   <section class="section-block">
     <div class="section-header">
-      <h2 class="section-title">Selected Projects</h2>
+      <h2 class="section-title">{{ selected_projects_title }}</h2>
     </div>
     {% if projects.size > 0 %}
       <div class="project-list">

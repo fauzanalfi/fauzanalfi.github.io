@@ -13,6 +13,9 @@ collections:
   research_projects:
     output: true
     permalink: /research/:title/
+  professional_projects:
+    output: true
+    permalink: /professional-projects/:title/
 author:
   github: fauzanalfi
   bio: BIM Engineer. XR Designer.
@@ -62,6 +65,13 @@ defaults:
   - scope:
       path: ""
       type: research_projects
+    values:
+      layout: research_project
+      featured: false
+      sort_order: 999
+  - scope:
+      path: ""
+      type: professional_projects
     values:
       layout: research_project
       featured: false
