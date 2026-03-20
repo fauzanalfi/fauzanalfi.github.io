@@ -1,7 +1,7 @@
 top:
+  - title: Home
+    url: /
   - title: Blog
-    url: /blog/
-  - title: Archive
     url: /blog/
   - title: Categories
     url: /categories/
@@ -12,7 +12,7 @@ sidebar:
     url: /research/
     icon: research
   - title: Publications
-    url: /blog/
+    url: /publications/
     icon: publications
   - title: Projects
     url: /projects/
