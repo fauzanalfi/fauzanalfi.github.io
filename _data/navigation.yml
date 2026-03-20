@@ -7,16 +7,15 @@ top:
     url: /categories/
   - title: Tags
     url: /tags/
-
 sidebar:
   - title: Research
     url: /research/
     icon: research
   - title: Publications
-    url: /blog/
+    url: /publications/
     icon: publications
   - title: Projects
-    url: /research/
+    url: /professional-projects/
     icon: projects
   - title: Teaching
     url: /teaching/
